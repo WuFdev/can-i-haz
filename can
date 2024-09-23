@@ -3,12 +3,16 @@
 if [[ "$1" == "i" && "$2" == "haz" ]]; then
     if [[ "$(uname -r)" =~ ^5.* ]]; then
         sudo pacman -S "$3"
+    elif [[ "$(uname -r)" =~ ^4.* ]]; then
+        echo "no you can NOT haz package >:("
     else
         sudo apt install "$3"
     fi
 elif [[ "$1" == "i" && "$2" == "not" && "$3" == "haz" ]]; then
     if [[ "$(uname -r)" =~ ^5.* ]]; then
         sudo pacman -R "$4"
+    elif [[ "$(uname -r)" =~ ^4.* ]]; then
+        echo "no you will BE GRATEFUL for the packages you haz! >:("
     else
         sudo apt remove "$4"
     fi
